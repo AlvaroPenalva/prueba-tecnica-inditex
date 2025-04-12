@@ -3,7 +3,7 @@ package com.inditex.core.prices.infrastructure.rest.dto;
 import java.time.Instant;
 
 public record PriceRestDTO(
-    String brandId,
+    int brandId,
     Instant startDate,
     Instant endDate,
     int priceList,

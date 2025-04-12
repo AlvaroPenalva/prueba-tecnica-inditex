@@ -1,7 +1,6 @@
 package com.inditex.core.prices.infrastructure.db.dto;
 
 import java.time.Instant;
-import java.util.Currency;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -12,7 +11,7 @@ import lombok.Getter;
 @Table(name = "prices")
 public class PriceEntity {
 
-    private String brandId;
+    private int brandId;
 
     private Instant startDate;
 
@@ -26,6 +25,6 @@ public class PriceEntity {
 
     private float price;
 
-    private Currency currency;
+    private String curr;
     
 }
