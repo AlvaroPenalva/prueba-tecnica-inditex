@@ -3,29 +3,33 @@ package com.inditex.core.prices.infrastructure.db.dto;
 import java.time.Instant;
 import java.util.Currency;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Getter;
 
 @Entity
 @Getter
-@Table(name = "prices")
+@Table(name = "PRICES")
 public class PriceEntity {
 
-    private String brandId;
+    @EmbeddedId
+    private PriceId priceId;
 
+    @Column(name = "START_DATE")
     private Instant startDate;
 
+    @Column(name = "END_DATE")
     private Instant endDate;
 
-    private int priceList;
-
-    private long productId;
-
+    @Column(name = "PRIORITY")
     private int priority;
 
+    @Column(name = "PRICE")
     private float price;
 
-    private Currency currency;
+    @Column(name = "CURR")
+    private Currency curr;
     
 }
