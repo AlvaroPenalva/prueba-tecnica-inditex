@@ -22,5 +22,7 @@ public class Price {
     private int priority;
 
     private float price;
+
+    private String curr;
     
 }

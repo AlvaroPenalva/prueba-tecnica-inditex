@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.inditex.core.prices.infrastructure.adapters.db.dto.PriceEntity;
-import com.inditex.core.prices.infrastructure.adapters.db.dto.PriceId;
+import com.inditex.core.prices.infrastructure.adapters.db.entities.PriceEntity;
+import com.inditex.core.prices.infrastructure.adapters.db.entities.PriceId;
 
 public interface JpaPriceRepository extends JpaRepository<PriceEntity, PriceId>{
 

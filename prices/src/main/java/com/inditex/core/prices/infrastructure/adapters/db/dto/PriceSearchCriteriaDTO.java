@@ -1,4 +1,4 @@
-package com.inditex.core.prices.application.dtos;
+package com.inditex.core.prices.infrastructure.adapters.db.dto;
 
 import java.time.Instant;
 
@@ -7,7 +7,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class PriceSearchCriteria {
+public class PriceSearchCriteriaDTO {
 
     private int brandId;
 
