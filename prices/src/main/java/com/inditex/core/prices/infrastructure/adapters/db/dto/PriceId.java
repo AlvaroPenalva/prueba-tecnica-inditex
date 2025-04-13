@@ -1,4 +1,4 @@
-package com.inditex.core.prices.infrastructure.db.dto;
+package com.inditex.core.prices.infrastructure.adapters.db.dto;
 
 import java.io.Serializable;
 
