@@ -1,16 +1,19 @@
-package com.inditex.core.prices.infrastructure.db.dto;
+package com.inditex.core.prices.infrastructure.adapters.db.entities;
 
 import java.time.Instant;
-import java.util.Currency;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "PRICES")
 public class PriceEntity {
 
@@ -30,6 +33,6 @@ public class PriceEntity {
     private float price;
 
     @Column(name = "CURR")
-    private Currency curr;
+    private String curr;
     
 }

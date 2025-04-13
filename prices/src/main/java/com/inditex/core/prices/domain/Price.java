@@ -9,7 +9,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class Price {
 
-    private String brandId;
+    private int brandId;
 
     private Instant startDate;
 
@@ -22,5 +22,7 @@ public class Price {
     private int priority;
 
     private float price;
+
+    private String curr;
     
 }
