@@ -1,4 +1,4 @@
-package com.inditex.core.prices.infrastructure.adapters.db.mapper;
+package com.inditex.core.prices.infrastructure.adapters.db.mappers;
 
 import org.mapstruct.Mapper;
 

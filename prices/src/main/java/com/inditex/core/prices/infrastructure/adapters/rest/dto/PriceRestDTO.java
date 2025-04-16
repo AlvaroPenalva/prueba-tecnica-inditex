@@ -1,4 +1,4 @@
-package com.inditex.core.prices.infrastructure.rest.dto;
+package com.inditex.core.prices.infrastructure.adapters.rest.dto;
 
 import java.time.Instant;
 

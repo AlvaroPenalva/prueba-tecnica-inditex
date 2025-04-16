@@ -9,9 +9,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Embeddable
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
 public class PriceId implements Serializable {
 
     private static final long serialVersionUID = 1L;
