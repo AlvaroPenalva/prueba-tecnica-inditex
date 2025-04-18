@@ -1,6 +1,8 @@
 package com.inditex.core.prices.domain;
 
 import java.time.Instant;
+import java.util.Comparator;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,4 +27,9 @@ public class Price {
 
     private String curr;
     
+    public static Price searchByPriority(List<Price> prices){
+        return prices.stream()
+                .max(Comparator.comparing(Price::getPriority))
+                .orElse(null);
+    }
 }

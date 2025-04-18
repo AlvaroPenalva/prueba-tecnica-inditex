@@ -4,11 +4,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.inditex.core.prices.application.usecases.PriceSearchUseCase;
 import com.inditex.core.prices.infrastructure.adapters.rest.dto.PriceRestDTO;
 import com.inditex.core.prices.infrastructure.adapters.rest.dto.PriceSearchRequest;
+import com.inditex.core.prices.infrastructure.adapters.rest.mappers.PriceRestMapper;
 import com.inditex.core.prices.infrastructure.adapters.rest.mappers.PriceSearchRequestMapper;
-import com.inditex.core.prices.infrastructure.adapters.rest.mappers.PriceSearchRequestMapperImpl;
-
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -18,13 +18,17 @@ public class PriceRestController {
 
     private PriceSearchRequestMapper priceSearchRequestMapper;
 
-    @GetMapping("search")
+    private PriceSearchUseCase searchPriceUseCase;
+
+    private PriceRestMapper priceRestMapper;
+
+    @GetMapping("/search")
     public PriceRestDTO search(PriceSearchRequest request){
         
-        //TODO
+        var params = priceSearchRequestMapper.toDomain(request);
         //call usecase
-        priceSearchRequestMapper.toDomain(request);
-        return null;
+        var result = searchPriceUseCase.execute(params);
+        return  priceRestMapper.toDTO(result);
     }
     
 }
