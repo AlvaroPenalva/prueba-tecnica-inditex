@@ -1,11 +1,11 @@
 package com.inditex.core.prices.infrastructure.adapters.rest.dto;
 
-import java.time.Instant;
+import java.time.ZonedDateTime;
 
 public record PriceRestDTO(
     int brandId,
-    Instant startDate,
-    Instant endDate,
+    ZonedDateTime startDate,
+    ZonedDateTime endDate,
     int priceList,
     long productId,
     int priority,
