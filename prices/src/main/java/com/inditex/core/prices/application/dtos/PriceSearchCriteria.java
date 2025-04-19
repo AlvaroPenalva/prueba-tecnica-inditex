@@ -3,8 +3,6 @@ package com.inditex.core.prices.application.dtos;
 import java.time.Instant;
 
 import com.inditex.core.prices.application.exceptions.InvalidParamException;
-import com.inditex.core.prices.domain.Price;
-
 import lombok.Getter;
 
 @Getter
