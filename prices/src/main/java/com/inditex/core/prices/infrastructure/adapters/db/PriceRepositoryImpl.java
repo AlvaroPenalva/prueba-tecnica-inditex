@@ -10,8 +10,8 @@ import com.inditex.core.prices.application.ports.PriceRepository;
 import com.inditex.core.prices.domain.Price;
 import com.inditex.core.prices.infrastructure.adapters.db.dto.PriceSearchCriteriaDTO;
 import com.inditex.core.prices.infrastructure.adapters.db.entities.PriceEntity;
-import com.inditex.core.prices.infrastructure.adapters.db.mapper.PriceEntityMapper;
-import com.inditex.core.prices.infrastructure.adapters.db.mapper.PriceSearchCriteriaMapper;
+import com.inditex.core.prices.infrastructure.adapters.db.mappers.PriceEntityMapper;
+import com.inditex.core.prices.infrastructure.adapters.db.mappers.PriceSearchCriteriaMapper;
 
 import lombok.AllArgsConstructor;
 
@@ -28,7 +28,7 @@ public class PriceRepositoryImpl implements PriceRepository{
     @Override
     public List<Price> searchPricesByCriteria(PriceSearchCriteria criteria){
 
-        PriceSearchCriteriaDTO criteriaDTO = priceSearchCriteriaMapper.toDTO(criteria);
+        PriceSearchCriteriaDTO criteriaDTO = priceSearchCriteriaMapper.map(criteria);
 
         int brandID = criteriaDTO.getBrandId();
 
