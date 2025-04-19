@@ -1,6 +1,6 @@
 package com.inditex.core.prices.application.dtos;
 
-import java.time.Instant;
+import java.time.ZonedDateTime;
 
 import com.inditex.core.prices.application.exceptions.InvalidParamException;
 import lombok.Getter;
@@ -12,9 +12,9 @@ public class PriceSearchCriteria{
 
     private long productId;
 
-    private Instant searchDate;
+    private ZonedDateTime searchDate;
 
-    public PriceSearchCriteria(int brandId, long productId, Instant searchDate) {
+    public PriceSearchCriteria(int brandId, long productId, ZonedDateTime searchDate) {
         setBrandId(brandId);
         setProductId(productId);
         setSearchDate(searchDate);
@@ -34,7 +34,7 @@ public class PriceSearchCriteria{
         this.productId = productId;
     }
 
-    private void setSearchDate(Instant searchDate) {
+    private void setSearchDate(ZonedDateTime searchDate) {
         if(searchDate == null){
             throw InvalidParamException.create("SearchDate must not be null");
         }

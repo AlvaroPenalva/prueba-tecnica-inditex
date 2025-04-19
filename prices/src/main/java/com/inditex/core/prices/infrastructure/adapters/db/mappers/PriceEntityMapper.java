@@ -13,7 +13,7 @@ public abstract class PriceEntityMapper implements BidirectionalMapper<Price, Pr
 
     public PriceEntity toDTO(Price price){
         PriceId priceId = toPriceId(price);
-        return  new PriceEntity(priceId, price.getStartDate(), price.getEndDate(), price.getPriority(), price.getPrice(), price.getCurr());
+        return  new PriceEntity(priceId, price.getStartDate(), price.getEndDate(), price.getPriority(), price.getPriceValue(), price.getCurr());
     }
 
     @Mapping(target = "brandId", source = "priceId.brandId")

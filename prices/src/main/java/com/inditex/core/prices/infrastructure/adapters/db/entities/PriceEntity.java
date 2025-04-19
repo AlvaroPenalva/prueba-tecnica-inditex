@@ -1,6 +1,6 @@
 package com.inditex.core.prices.infrastructure.adapters.db.entities;
 
-import java.time.Instant;
+import java.time.ZonedDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
@@ -21,16 +21,16 @@ public class PriceEntity {
     private PriceId priceId;
 
     @Column(name = "START_DATE")
-    private Instant startDate;
+    private ZonedDateTime startDate;
 
     @Column(name = "END_DATE")
-    private Instant endDate;
+    private ZonedDateTime endDate;
 
     @Column(name = "PRIORITY")
     private int priority;
 
     @Column(name = "PRICE")
-    private float price;
+    private float priceValue;
 
     @Column(name = "CURR")
     private String curr;
