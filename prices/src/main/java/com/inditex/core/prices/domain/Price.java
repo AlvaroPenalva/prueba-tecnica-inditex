@@ -4,6 +4,8 @@ import java.time.Instant;
 import java.util.Comparator;
 import java.util.List;
 
+import com.inditex.core.prices.domain.exceptions.PriceNotFoundException;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -30,6 +32,6 @@ public class Price {
     public static Price searchByPriority(List<Price> prices){
         return prices.stream()
                 .max(Comparator.comparing(Price::getPriority))
-                .orElse(null);
+                .orElseThrow(() -> PriceNotFoundException.create("No price found"));
     }
 }
