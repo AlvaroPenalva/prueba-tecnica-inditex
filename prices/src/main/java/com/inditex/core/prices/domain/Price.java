@@ -4,6 +4,8 @@ import java.time.Instant;
 import java.util.Comparator;
 import java.util.List;
 
+import com.inditex.core.prices.application.exceptions.PriceNotFoundException;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

@@ -3,6 +3,7 @@ package com.inditex.core.prices.application.usecases;
 import org.springframework.stereotype.Service;
 
 import com.inditex.core.prices.application.dtos.PriceSearchCriteria;
+import com.inditex.core.prices.application.exceptions.PriceNotFoundException;
 import com.inditex.core.prices.application.ports.PriceRepository;
 import com.inditex.core.prices.application.ports.UseCase;
 import com.inditex.core.prices.domain.Price;
@@ -17,6 +18,9 @@ public class PriceSearchUseCase implements UseCase<PriceSearchCriteria, Price>{
 
     public Price execute(PriceSearchCriteria params){
         var prices = priceRepository.searchPricesByCriteria(params);
+        if(prices.isEmpty()){
+            throw PriceNotFoundException.createFromCriteria(params);
+        }
         return Price.searchByPriority(prices);
     }
     
