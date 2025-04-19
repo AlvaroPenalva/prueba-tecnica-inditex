@@ -28,7 +28,7 @@ public class PriceRepositoryImpl implements PriceRepository{
     @Override
     public List<Price> searchPricesByCriteria(PriceSearchCriteria criteria){
 
-        PriceSearchCriteriaDTO criteriaDTO = priceSearchCriteriaMapper.toDTO(criteria);
+        PriceSearchCriteriaDTO criteriaDTO = priceSearchCriteriaMapper.map(criteria);
 
         int brandID = criteriaDTO.getBrandId();
 

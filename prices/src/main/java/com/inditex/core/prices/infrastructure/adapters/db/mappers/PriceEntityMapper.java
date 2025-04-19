@@ -6,10 +6,10 @@ import org.mapstruct.Mapping;
 import com.inditex.core.prices.domain.Price;
 import com.inditex.core.prices.infrastructure.adapters.db.entities.PriceEntity;
 import com.inditex.core.prices.infrastructure.adapters.db.entities.PriceId;
-import com.inditex.core.prices.infrastructure.mappers.GenericMapper;
+import com.inditex.core.prices.infrastructure.mappers.BidirectionalMapper;
 
 @Mapper(componentModel = "spring")
-public abstract class PriceEntityMapper implements GenericMapper<Price, PriceEntity>{
+public abstract class PriceEntityMapper implements BidirectionalMapper<Price, PriceEntity>{
 
     public PriceEntity toDTO(Price price){
         PriceId priceId = toPriceId(price);

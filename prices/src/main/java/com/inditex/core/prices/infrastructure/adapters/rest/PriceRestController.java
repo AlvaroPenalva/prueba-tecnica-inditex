@@ -25,10 +25,10 @@ public class PriceRestController {
     @GetMapping("/search")
     public PriceRestDTO search(PriceSearchRequest request){
         
-        var params = priceSearchRequestMapper.toDomain(request);
+        var params = priceSearchRequestMapper.map(request);
         //call usecase
         var result = searchPriceUseCase.execute(params);
-        return  priceRestMapper.toDTO(result);
+        return  priceRestMapper.map(result);
     }
     
 }
