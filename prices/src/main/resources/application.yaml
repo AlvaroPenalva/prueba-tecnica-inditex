@@ -4,7 +4,7 @@ spring:
         name: prices
 
     datasource:
-        url: jdbc:h2:mem:testdb
+        url: jdbc:h2:mem:testdb;TIME ZONE=UTC
         driverClassName: org.h2.Driver
         username: alvaro
         password:
@@ -12,6 +12,9 @@ spring:
     jpa:
         database-platform:  org.hibernate.dialect.H2Dialect
         defer-datasource-initialization: true
+    
+    jackson:
+        time-zone: UTC
 
     h2:
         console:
