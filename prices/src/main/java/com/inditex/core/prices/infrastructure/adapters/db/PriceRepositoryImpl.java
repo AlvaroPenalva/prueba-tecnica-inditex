@@ -38,7 +38,7 @@ public class PriceRepositoryImpl implements PriceRepository{
 
         List<PriceEntity> entities = jpaPriceRepository.findByBrandIdProductIdAndSearchDate(brandID, productId, searchDate);
 
-        return entities.stream().map(entity -> priceEntityMapper.toDomain(entity)).toList();
+        return entities.stream().map(entity -> priceEntityMapper.map(entity)).toList();
 
     }
     
