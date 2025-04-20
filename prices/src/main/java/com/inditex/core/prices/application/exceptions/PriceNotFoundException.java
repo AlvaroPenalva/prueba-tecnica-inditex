@@ -8,10 +8,6 @@ public class PriceNotFoundException extends RuntimeException{
         super(messagge);
     }
 
-    public static PriceNotFoundException create(String message){
-        return new PriceNotFoundException(message);
-    }
-
     public static PriceNotFoundException createFromCriteria(PriceSearchCriteria criteria){
         return new PriceNotFoundException("Price not found for brandId: " + criteria.getBrandId() +
                 ", productId: " + criteria.getProductId() +

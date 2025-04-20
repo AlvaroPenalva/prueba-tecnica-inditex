@@ -128,17 +128,13 @@
                         <goal>check</goal>
                     </goals>
                     <configuration>
-						<excludes>
-							<exclude>target</exclude>
-						</excludes>
                         <rules>
                             <rule>
-                                <element>BUNDLE</element>
                                 <limits>
                                     <limit>
                                         <counter>LINE</counter>
                                         <value>COVEREDRATIO</value>
-                                        <minimum>0.90</minimum>
+                                        <minimum>90.0%</minimum>
                                     </limit>
                                 </limits>
                             </rule>
