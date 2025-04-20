@@ -28,4 +28,4 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Run tests and generate JaCoCo report
-      run: mvn clean verify
+      run: mvn clean verify --file prices/pom.xml
