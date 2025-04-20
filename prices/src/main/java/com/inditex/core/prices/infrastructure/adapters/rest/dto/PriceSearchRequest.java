@@ -1,6 +1,6 @@
 package com.inditex.core.prices.infrastructure.adapters.rest.dto;
 
-import java.time.ZonedDateTime;
+import java.time.Instant;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,6 +13,6 @@ public class PriceSearchRequest {
 
     private long productId;
 
-    private ZonedDateTime searchDate;
+    private Instant searchDate;
     
 }
