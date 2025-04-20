@@ -12,6 +12,8 @@ import com.inditex.core.prices.PricesApplication;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import java.time.Instant;
+
 @SpringBootTest(classes = PricesApplication.class)
 @AutoConfigureMockMvc
  class PriceRestControllerTest {
@@ -21,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
     @ParameterizedTest
     @CsvFileSource(resources = "/test-data.csv", numLinesToSkip = 1)
-    void testPriceSearch(String searchDate, int brandId, long productId, int priceListResult, double priceResult) throws Exception {
+    void testPriceSearchHappyPath(String searchDate, int brandId, long productId, int priceListResult, double priceResult) throws Exception {
         mockMvc.perform(get("/prices/search")
                 .param("brandId", String.valueOf(brandId))
                 .param("productId", String.valueOf(productId))
@@ -31,6 +33,24 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
                 .andExpect(jsonPath("$.productId").value(productId))
                 .andExpect(jsonPath("$.priceList").value(priceListResult))
                 .andExpect(jsonPath("$.price").value(priceResult));
+    }
+
+    @Test
+    void testPriceSearchInvalidParams() throws Exception {
+        mockMvc.perform(get("/prices/search")
+                .param("brandId", String.valueOf(1))
+                .param("productId", String.valueOf(-1))
+                .param("searchDate", String.valueOf(Instant.now())))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void testPriceSearchNotFound() throws Exception {
+        mockMvc.perform(get("/prices/search")
+                .param("brandId", String.valueOf(1))
+                .param("productId", String.valueOf(1))
+                .param("searchDate", String.valueOf(Instant.now())))
+                .andExpect(status().isNotFound());
     }
     
 }
