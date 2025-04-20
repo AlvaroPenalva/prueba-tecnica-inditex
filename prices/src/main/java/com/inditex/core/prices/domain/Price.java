@@ -1,6 +1,6 @@
 package com.inditex.core.prices.domain;
 
-import java.time.ZonedDateTime;
+import java.time.Instant;
 import java.util.Comparator;
 import java.util.List;
 
@@ -13,9 +13,9 @@ public class Price {
 
     private int brandId;
 
-    private ZonedDateTime startDate;
+    private Instant startDate;
 
-    private ZonedDateTime endDate;
+    private Instant endDate;
 
     private int priceList;
 

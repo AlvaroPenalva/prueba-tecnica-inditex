@@ -1,6 +1,6 @@
 package com.inditex.core.prices.infrastructure.adapters.db;
 
-import java.time.ZonedDateTime;
+import java.time.Instant;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -34,7 +34,7 @@ public class PriceRepositoryImpl implements PriceRepository{
 
         long productId = criteriaDTO.getProductId();
 
-        ZonedDateTime searchDate = criteriaDTO.getSearchDate();
+        Instant searchDate = criteriaDTO.getSearchDate();
 
         List<PriceEntity> entities = jpaPriceRepository.findByBrandIdProductIdAndSearchDate(brandID, productId, searchDate);
 
