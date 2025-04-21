@@ -39,7 +39,7 @@ public class GlobalExceptionController {
 
      @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<HashMap<String, String>> handleHttpMessageNotReadable(MethodArgumentNotValidException ex) {
-        return buildResponseEntity("Invalid param in request", HttpStatus.BAD_REQUEST);
+        return buildResponseEntity("Invalid param type in request", HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
     @ExceptionHandler(TimeoutException.class)
