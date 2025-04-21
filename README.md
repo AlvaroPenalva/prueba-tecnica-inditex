@@ -57,10 +57,20 @@ Sigue estos pasos para instalar y configurar el proyecto:
 
 ### A saber
 
-Entre los distintos commits realizados en el proyecto, se incluyen diversas correcciones y descartes de ideas, como la eliminación de la gestión de la zona horaria de Madrid. También se descartó la implementación de un bus de casos de uso, que habría permitido centralizar la gestión de los parámetros pasados a cada caso de uso mediante una interfaz específica. Además, se optó por no utilizar mapeadores bidireccionales en escenarios donde las entidades pueden ser recuperadas o almacenadas en la base de datos. Todo esto se planteo para aseguurar un mejor desacoplamiento o aumento de eficiencia pero fue descartado para simplificar el código y centrarlo en el caso de uso.
+Entre los distintos commits realizados en el proyecto, se incluyen diversas correcciones y descartes de ideas, como la eliminación de la gestión de la zona horaria de Madrid.
+
+También se descartó la implementación de un bus de casos de uso, que habría permitido centralizar la gestión de los parámetros pasados a cada caso de uso mediante una interfaz específica.
+
+Además, se optó por no utilizar mapeadores bidireccionales en escenarios donde las entidades pueden ser recuperadas o almacenadas en la base de datos. Todo esto se planteo para aseguurar un mejor desacoplamiento o aumento de eficiencia pero fue descartado para simplificar el código y centrarlo en el caso de uso.
 
 ### Propuestas
 
 Para optimizar la eficiencia en la base de datos, se ha implementado un índice que mejora el rendimiento de las búsquedas, limitando estas exclusivamente a los campos necesarios.
+
 En línea con los principios del Domain-Driven Design (DDD) y para mantener la lógica centrada en el dominio, la entidad Price asume la responsabilidad de gestionar la prioridad en las búsquedas. Aunque este enfoque puede reducir la eficiencia de las operaciones en base de datos, garantiza el desacoplamiento entre el dominio y la infraestructura, preservando la integridad del diseño orientado al dominio.
+
 Por otro lado, el tratamiento de excepciones se maneja exclusivamente en la capa de aplicación, ya que estas excepciones están diseñadas para gestionar errores específicos de los casos de uso y no del dominio. Esto asegura una separación clara entre la lógica del negocio y las responsabilidades propias de la aplicación.
+
+En cuanto a los tests, se han desarrollado pruebas de integración para todos los casos de uso solicitados, asegurando que funcionen correctamente dentro del sistema completo. Además, se han implementado pruebas unitarias y de dominio específicas para garantizar la correcta captura de excepciones y la estabilidad de la lógica en niveles más detallados del proyecto.
+
+Por ultimo se generó un script para la ejecución de los test y la compilación en github actions, así para poder observar el correcto funcionamiento en el propio repositorio.
