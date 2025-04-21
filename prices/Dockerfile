@@ -1,8 +1,8 @@
-FROM openjdk:21-jdk
+FROM openjdk:23-jdk
 
 WORKDIR /app
 
-COPY prices/target/prices-0.0.1-SNAPSHOT.jar /app/prices.jar
+COPY target/prices-1.0.0.jar /app/prices.jar
 
 EXPOSE 8080
 
