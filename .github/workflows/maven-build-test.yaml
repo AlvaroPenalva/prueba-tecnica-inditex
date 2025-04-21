@@ -6,11 +6,13 @@ on:
       - main
       - develop
       - feature/*
+      - fix/*
   pull_request:
     branches:
       - main
       - develop
       - feature/*
+      - fix/*
 
 jobs:
   build_test:
@@ -25,8 +27,5 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      run: mvn -B package --file prices/pom.xml
-
-    - name: Run Tests
-      run: mvn test --file prices/pom.xml
+    - name: Run tests and generate JaCoCo report
+      run: mvn clean verify --file prices/pom.xml
