@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.inditex.core</groupId>
 	<artifactId>prices</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>prices</name>
 	<description>Prices practice project</description>
 	<url/>
