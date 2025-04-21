@@ -39,7 +39,9 @@ public class GlobalExceptionController {
 
      @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<HashMap<String, String>> handleHttpMessageNotReadable(MethodArgumentNotValidException ex) {
-        return buildResponseEntity("Invalid param type in request", HttpStatus.UNPROCESSABLE_ENTITY);
+        // Here sonar detects a possible null pointer exception but it is not possible because the field error is always present in this case.
+        // The exception is thrown when the request body is not valid, so the field error will always be present.
+        return buildResponseEntity("Invalid param type in request: " + ex.getBindingResult().getFieldError().getField(), HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
     @ExceptionHandler(TimeoutException.class)
